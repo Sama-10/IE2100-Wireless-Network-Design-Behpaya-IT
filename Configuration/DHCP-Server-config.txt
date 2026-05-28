@@ -1,0 +1,51 @@
+# DHCP Server Configuration (192.168.40.10)
+
+## Server Setup
+- IP Address: 192.168.40.10
+- Subnet Mask: 255.255.255.240
+- Default Gateway: 192.168.40.1
+- DNS Server: 192.168.40.11
+
+## DHCP Pools Configured
+
+### STAFF_POOL (VLAN 10)
+- Network: 192.168.10.0/24
+- Default Gateway: 192.168.10.1
+- DNS Server: 192.168.40.11
+- IP Range: 192.168.10.100 - 192.168.10.200
+
+### ADMIN_POOL (VLAN 20)
+- Network: 192.168.20.0/28
+- Default Gateway: 192.168.20.1
+- DNS Server: 192.168.40.11
+- IP Range: 192.168.20.10 - 192.168.20.25
+
+### GUEST_POOL (VLAN 30)
+- Network: 172.16.30.0/24
+- Default Gateway: 172.16.30.1
+- DNS Server: 8.8.8.8
+- IP Range: 172.16.30.50 - 172.16.30.200
+
+### VOIP_POOL (VLAN 50)
+- Network: 192.168.50.0/24
+- Default Gateway: 192.168.50.1
+- DNS Server: 192.168.40.11
+- IP Range: 192.168.50.50 - 192.168.50.150
+
+### PRINTERS_POOL (VLAN 60)
+- Network: 192.168.60.0/28
+- Default Gateway: 192.168.60.1
+- DNS Server: 192.168.40.11
+- IP Range: 192.168.60.10 - 192.168.60.20
+
+### AP_MGMT_POOL (VLAN 70)
+- Network: 192.168.70.0/24
+- Default Gateway: 192.168.70.1
+- DNS Server: 192.168.40.11
+- IP Range: 192.168.70.100 - 192.168.70.200
+
+### IOT_POOL (VLAN 99)
+- Network: 192.168.99.0/24
+- Default Gateway: 192.168.99.1
+- DNS Server: 192.168.40.11
+- IP Range: 192.168.99.20 - 192.168.99.100
