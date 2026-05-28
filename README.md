@@ -1,8 +1,6 @@
 # IE2100 - Data Communication & Wireless Network
 ## Group Assignment: Network Design for Behpaya Information Technology
 
-![SLIIT Logo](https://www.sliit.lk/wp-content/uploads/2019/07/cropped-sliit-logo-1.png)
-
 ## 📌 Project Overview
 
 **Module:** IE2100 - Data Communication & Wireless Network  
