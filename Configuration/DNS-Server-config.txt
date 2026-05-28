@@ -1,0 +1,22 @@
+# DNS Server Configuration (192.168.40.11)
+
+## Server Setup
+- IP Address: 192.168.40.11
+- Subnet Mask: 255.255.255.240
+- Default Gateway: 192.168.40.1
+- DNS Server (itself): 192.168.40.11
+
+## Internal A Records
+
+| Domain Name | IP Address | Type |
+|-------------|------------|------|
+| dhcp.behpaya.local | 192.168.40.10 | A Record |
+| dns.behpaya.local | 192.168.40.11 | A Record |
+| radius.behpaya.local | 192.168.40.14 | A Record |
+| ntp.behpaya.local | 192.168.40.13 | A Record |
+| syslog.behpaya.local | 192.168.40.12 | A Record |
+| www.behpaya.local | 192.168.40.12 | A Record |
+| files.behpaya.local | 192.168.40.13 | A Record |
+
+## Forwarding
+- Forward queries to: 8.8.8.8 (for external resolution)
