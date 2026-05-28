@@ -131,6 +131,57 @@ As the Wireless Network Engineer, I was responsible for:
 
 ---
 
+## 🔒 Security Implementation
+
+| Threat | Mitigation |
+|--------|------------|
+| Unauthorized wired access | 802.1X + MAC filtering |
+| Evil twin AP attack | Rogue AP detection (WIDS) |
+| DoS attack on guest Wi-Fi | Rate limiting (10 Mbps/client) |
+| Man-in-the-middle attack | ARP inspection + DAI |
+| Data breach via guest network | L3 isolation + URL filtering |
+| Weak Wi-Fi password cracking | WPA3-Enterprise + MFA |
+| Physical switch port tampering | Port security + disable unused ports |
+
+---
+
+## 💰 Budget Summary (Bill of Materials)
+
+### Hardware & Software Costs
+
+| Item | Model | Qty | Unit Price (LKR) | Total (LKR) |
+|------|-------|-----|------------------|-------------|
+| NGFW Hardware | FortiGate 80F | 1 | 450,000 | 450,000 |
+| NGFW Software (3-Yr) | FortiGuard Security Bundle | 1 | 270,000 | 270,000 |
+| L3 Core Switch | Cisco 3560-24PS | 1 | 350,000 | 350,000 |
+| Access Switch | Cisco 2960-24TT | 4 | 120,000 | 480,000 |
+| Access Switch Software | Cisco ONE Foundation (24 ports) | 4 | 25,000 | 100,000 |
+| Wi-Fi AP | Meraki MR46 (Wi-Fi 6) | 8 | 85,000 | 680,000 |
+| Cloud Controller License (3-Yr) | Meraki Cloud MR Advanced Security | 8 | 52,000 | 416,000 |
+| Cat6A Cabling | 305m box | 3 | 25,000 | 75,000 |
+| Patch Panel | 24-port | 2 | 8,000 | 32,000 |
+| Rack | 42U Server Rack | 1 | 60,000 | 60,000 |
+| UPS | APC SMT1500 | 1 | 85,000 | 85,000 |
+
+### Services
+
+| Item | Cost (LKR) |
+|------|-------------|
+| Installation & Configuration | 300,000 |
+
+### Total Estimated Cost
+
+| Category | Total (LKR) |
+|----------|--------------|
+| Hardware Total | 2,998,000 |
+| Software Total | 786,000 |
+| Services Total | 300,000 |
+| **Grand Total** | **4,084,000 LKR** |
+
+> **Note:** All prices are estimates for proposal purposes. Actual quotes available upon request.
+
+---
+
 ## 📊 Key Achievements
 
 ✅ **≥95% coverage at -65 dBm** - Met assignment coverage KPI  
