@@ -1,0 +1,126 @@
+!
+! L3-CORE (Cisco 3650-24PS) - Multilayer Switch
+! Inter-VLAN Routing & Core Switching
+!
+hostname L3-CORE
+!
+! Enable IP Routing
+ip routing
+!
+! Create VLANs
+vlan 10
+ name STAFF
+exit
+vlan 20
+ name ADMIN
+exit
+vlan 30
+ name GUEST
+exit
+vlan 40
+ name NETWORK_DEV
+exit
+vlan 50
+ name VOIP
+exit
+vlan 60
+ name PRINTERS
+exit
+vlan 70
+ name AP-MGMT
+exit
+vlan 99
+ name IOT
+exit
+!
+! SVI Interfaces (Gateways)
+interface vlan 10
+ ip address 192.168.10.1 255.255.255.0
+ ip helper-address 192.168.40.10
+ no shutdown
+exit
+interface vlan 20
+ ip address 192.168.20.1 255.255.255.240
+ ip helper-address 192.168.40.10
+ no shutdown
+exit
+interface vlan 30
+ ip address 172.16.30.1 255.255.255.0
+ ip helper-address 192.168.40.10
+ no shutdown
+exit
+interface vlan 40
+ ip address 192.168.40.1 255.255.255.240
+ no shutdown
+exit
+interface vlan 50
+ ip address 192.168.50.1 255.255.255.0
+ ip helper-address 192.168.40.10
+ no shutdown
+exit
+interface vlan 60
+ ip address 192.168.60.1 255.255.255.240
+ ip helper-address 192.168.40.10
+ no shutdown
+exit
+interface vlan 70
+ ip address 192.168.70.1 255.255.255.0
+ ip helper-address 192.168.40.10
+ no shutdown
+exit
+interface vlan 99
+ ip address 192.168.99.1 255.255.255.0
+ ip helper-address 192.168.40.10
+ no shutdown
+exit
+!
+! Trunk to Ground SW1
+interface gig1/0/2
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30,40,50,60,70,99
+ no shutdown
+exit
+!
+! Trunk to First SW1
+interface gig1/0/3
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30,40,50,60,70,99
+ no shutdown
+exit
+!
+! Routed port to NGFW
+interface gig1/0/1
+ no switchport
+ ip address 10.0.0.2 255.255.255.252
+ no shutdown
+exit
+!
+! Server ports (Access VLAN 40)
+interface range gig1/0/4-24
+ switchport mode access
+ switchport access vlan 40
+ spanning-tree portfast
+ no shutdown
+exit
+!
+! Default route to NGFW
+ip route 0.0.0.0 0.0.0.0 10.0.0.1
+!
+! Guest Isolation ACL
+access-list 110 deny ip 172.16.30.0 0.0.0.255 192.168.0.0 0.0.255.255
+access-list 110 permit ip any any
+interface vlan 30
+ ip access-group 110 in
+exit
+!
+! DHCP Snooping
+ip dhcp snooping
+ip dhcp snooping vlan 10,20,30,50,60,70,99
+interface gig1/0/2
+ ip dhcp snooping trust
+interface gig1/0/3
+ ip dhcp snooping trust
+exit
+!
+! Save configuration
+write memory
