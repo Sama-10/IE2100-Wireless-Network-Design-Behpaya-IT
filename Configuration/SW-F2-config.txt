@@ -1,0 +1,96 @@
+!
+! SW-F2 (Cisco 2960-24TT) - First Floor Access Switch 2
+!
+hostname SW-F2
+!
+! Create VLANs
+vlan 10
+ name STAFF
+exit
+vlan 20
+ name ADMIN
+exit
+vlan 30
+ name GUEST
+exit
+vlan 40
+ name NETWORK_DEV
+exit
+vlan 50
+ name VOIP
+exit
+vlan 60
+ name PRINTERS
+exit
+vlan 70
+ name AP-MGMT
+exit
+vlan 99
+ name IOT
+exit
+!
+! Access ports for Staff PCs (VLAN 10) - Remaining
+interface range fa0/1-5
+ switchport mode access
+ switchport access vlan 10
+ switchport voice vlan 50
+ spanning-tree portfast
+ no shutdown
+exit
+!
+! Access ports for IP Phones (VLAN 50)
+interface range fa0/6-15
+ switchport mode access
+ switchport access vlan 50
+ switchport voice vlan 50
+ spanning-tree portfast
+ no shutdown
+exit
+!
+! Access ports for Access Points (VLAN 70)
+interface range fa0/16-19
+ switchport mode access
+ switchport access vlan 70
+ spanning-tree portfast
+ no shutdown
+exit
+!
+! Access ports for Printers (VLAN 60)
+interface range fa0/20-21
+ switchport mode access
+ switchport access vlan 60
+ spanning-tree portfast
+ no shutdown
+exit
+!
+! Access ports for Guest Wired (VLAN 30)
+interface range fa0/22-24
+ switchport mode access
+ switchport access vlan 30
+ spanning-tree portfast
+ no shutdown
+exit
+!
+! Trunk to SW-F1
+interface gig0/2
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30,40,50,60,70,99
+ no shutdown
+exit
+!
+! Port Security
+interface range fa0/1-24
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+exit
+!
+! DHCP Snooping
+ip dhcp snooping
+ip dhcp snooping vlan 10,20,30,50,60,70,99
+interface gig0/2
+ ip dhcp snooping trust
+exit
+!
+! Save configuration
+write memory
