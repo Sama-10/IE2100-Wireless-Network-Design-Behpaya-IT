@@ -156,10 +156,10 @@ As the Wireless Network Engineer, I was responsible for:
 | L3 Core Switch | Cisco 3560-24PS | 1 | 350,000 | 350,000 |
 | Access Switch | Cisco 2960-24TT | 4 | 120,000 | 480,000 |
 | Access Switch Software | Cisco ONE Foundation (24 ports) | 4 | 25,000 | 100,000 |
-| Wi-Fi AP | Meraki MR46 (Wi-Fi 6) | 8 | 85,000 | 680,000 |
+| Wi-Fi AP | Meraki MR46 | 8 | 85,000 | 680,000 |
 | Cloud Controller License (3-Yr) | Meraki Cloud MR Advanced Security | 8 | 52,000 | 416,000 |
 | Cat6A Cabling | 305m box | 3 | 25,000 | 75,000 |
-| Patch Panel | 24-port | 2 | 8,000 | 32,000 |
+| Patch Panel | 24-port | 4 | 8,000 | 32,000 |
 | Rack | 42U Server Rack | 1 | 60,000 | 60,000 |
 | UPS | APC SMT1500 | 1 | 85,000 | 85,000 |
 
@@ -172,11 +172,26 @@ As the Wireless Network Engineer, I was responsible for:
 ### Total Estimated Cost
 
 | Category | Total (LKR) |
-|----------|--------------|
-| Hardware Total | 2,998,000 |
-| Software Total | 786,000 |
+|----------|-------------|
+| Hardware Total | 2,612,000 |
+| Software Total | 1,086,000 |
 | Services Total | 300,000 |
-| **Grand Total** | **4,084,000 LKR** |
+| **Grand Total** | **3,998,000** |
+
+> Wait, let me double-check:
+
+**Correct Calculation:**
+
+| Category | Total (LKR) |
+|----------|-------------|
+| NGFW Hardware + Software | 720,000 |
+| L3 Core Switch | 350,000 |
+| Access Switches (4) + Software | 580,000 |
+| Wi-Fi APs (8) + Cloud Licenses (8) | 1,096,000 |
+| Cabling + Patch Panels + Rack + UPS | 252,000 |
+| **Subtotal** | **2,998,000** |
+| Installation & Configuration | 300,000 |
+| **Grand Total** | **3,298,000 LKR** |
 
 > **Note:** All prices are estimates for proposal purposes. Actual quotes available upon request.
 
