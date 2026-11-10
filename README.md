@@ -1,6 +1,8 @@
 # IE2100 - Data Communication & Wireless Network
 ## Group Assignment: Network Design for Behpaya Information Technology
 
+![Topology](Docs/both-floors.png)
+
 ## 📌 Project Overview
 
 **Module:** IE2100 - Data Communication & Wireless Network  
